@@ -1,0 +1,580 @@
+<!-- Сообщаем браузеру как стоит обрабатывать эту страницу -->
+<!DOCTYPE html>
+<!-- Оболочка документа, указываем язык содержимого -->
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.min.css?_v=20221225234736">
+    <title>Оформление заказа</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <svg display="none">
+    <symbol id="user" viewBox="0 0 23 22">
+        <g>
+            <path
+                d="M0.931641 22C0.931641 22.5522 1.37891 23 1.93164 23C2.48438 23 2.93164 22.5522 2.93164 22C2.93164 18.4712 4.96313 15.3471 8.1297 13.8698C9.22559 14.5819 10.5293 15 11.9307 15C13.3373 15 14.6461 14.5791 15.7445 13.8619C16.6898 14.3082 17.5659 14.9086 18.2949 15.6372C19.9951 17.3379 20.9316 19.5977 20.9316 22C20.9316 22.5522 21.3789 23 21.9316 23C22.4844 23 22.9316 22.5522 22.9316 22C22.9316 19.0635 21.7871 16.3018 19.709 14.2231C19.0136 13.5274 18.2054 12.9308 17.3384 12.439C18.3326 11.2301 18.9307 9.68372 18.9307 8C18.9307 4.14014 15.79 1 11.9307 1C8.07129 1 4.93066 4.14014 4.93066 8C4.93066 9.67963 5.52631 11.2222 6.51611 12.4299C3.08331 14.3626 0.931641 17.9738 0.931641 22ZM11.9307 3C14.6875 3 16.9307 5.24316 16.9307 8C16.9307 10.7568 14.6875 13 11.9307 13C9.17383 13 6.93066 10.7568 6.93066 8C6.93066 5.24316 9.17383 3 11.9307 3Z" />
+        </g>
+    </symbol>
+</svg>
+<svg display="none">
+    <symbol id="geo" viewBox="0 0 15 22" preserveAspectRatio="xMinYMid">
+        <path
+            d="M12 5C10.3457 5 9 6.3457 9 8C9 9.6543 10.3457 11 12 11C13.6543 11 15 9.6543 15 8C15 6.3457 13.6543 5 12 5ZM12 9C11.4487 9 11 8.55127 11 8C11 7.44873 11.4487 7 12 7C12.5513 7 13 7.44873 13 8C13 8.55127 12.5513 9 12 9Z" />
+        <path
+            d="M11.998 1C8.13818 1 4.99805 4.14014 4.99805 8C4.99805 13.2427 10.9141 22.1768 11.166 22.5547C11.3516 22.833 11.6636 23 11.998 23C12.3325 23 12.6445 22.833 12.8301 22.5547C13.082 22.1768 18.998 13.2427 18.998 8C18.998 4.14014 15.8579 1 11.998 1ZM11.998 20.1299C10.3862 17.502 6.99805 11.5537 6.99805 8C6.99805 5.24316 9.24121 3 11.998 3C14.7549 3 16.998 5.24316 16.998 8C16.998 11.5537 13.6099 17.502 11.998 20.1299Z" />
+    </symbol>
+</svg>
+<svg display="none">
+    <symbol id="logout" viewBox="0 0 23 23">
+        <path
+            d="M3.92773 22.9993H9.92773C11.582 22.9993 12.9277 21.6536 12.9277 19.9994V15.9995C12.9277 15.4473 12.4805 14.9995 11.9277 14.9995C11.375 14.9995 10.9277 15.4473 10.9277 15.9995V19.9994C10.9277 20.5506 10.4795 20.9993 9.92773 20.9993H3.92773C3.37598 20.9993 2.92773 20.5506 2.92773 19.9994V3.9999C2.92773 3.44865 3.37598 2.99993 3.92773 2.99993H9.92773C10.4795 2.99993 10.9277 3.44865 10.9277 3.9999V7.99977C10.9277 8.55199 11.375 8.99973 11.9277 8.99973C12.4805 8.99973 12.9277 8.55199 12.9277 7.99977V3.9999C12.9277 2.34566 11.582 1 9.92773 1H3.92773C2.27344 1 0.927734 2.34566 0.927734 3.9999V19.9994C0.927734 21.6536 2.27344 22.9993 3.92773 22.9993Z" />
+        <path
+            d="M6.92773 12.0002C6.92773 12.5525 7.37503 13.0002 7.9278 13.0002H19.5144L15.2212 17.2932C14.8306 17.6838 14.8306 18.3167 15.2212 18.7073C15.4165 18.9026 15.6724 19.0002 15.9283 19.0002C16.1842 19.0002 16.44 18.9026 16.6354 18.7073L22.6351 12.7079C22.7276 12.6156 22.8009 12.5049 22.8517 12.3821C22.9527 12.1379 22.9527 11.8626 22.8517 11.6183C22.8009 11.4956 22.7276 11.3849 22.6351 11.2925L16.6354 5.29321C16.2447 4.90259 15.6119 4.90259 15.2212 5.29321C14.8306 5.68384 14.8306 6.31665 15.2212 6.70728L19.5144 11.0002H7.9278C7.37503 11.0002 6.92773 11.448 6.92773 12.0002Z" />
+    </symbol>
+</svg>
+<svg display="none">
+    <symbol id="favorite" viewBox="0 0 23 23">
+        <path
+            d="M16.002 1C14.5586 1 13.167 1.45654 12.002 2.30029C10.8369 1.45654 9.44531 1 8.00195 1C4.14209 1 1.00195 4.23535 1.00195 8.2124C1.00195 8.43847 1.01416 8.66406 1.0376 8.86279C1.11426 9.61328 1.32861 10.4292 1.67187 11.2827C3.88672 16.8862 11.0811 22.5498 11.3862 22.7881C11.5674 22.9292 11.7847 23 12.002 23C12.2192 23 12.4365 22.9292 12.6177 22.7881C12.9229 22.5498 20.1172 16.8862 22.3296 11.2886C22.6753 10.4292 22.8896 9.61328 22.9648 8.87695C22.9897 8.66406 23.002 8.43847 23.002 8.2124C23.002 4.23535 19.8618 1 16.002 1ZM20.9771 8.65966C20.9194 9.22314 20.75 9.85644 20.4717 10.5474C18.812 14.7471 13.7651 19.2305 12.002 20.7085C10.2383 19.2314 5.19336 14.7515 3.52979 10.5415C3.25391 9.85644 3.08447 9.22314 3.02539 8.6455C3.00928 8.50683 3.00195 8.35937 3.00195 8.2124C3.00195 5.33838 5.24512 3 8.00195 3C9.22998 3 10.4072 3.47021 11.3179 4.32422C11.7026 4.68457 12.3013 4.68457 12.686 4.32422C13.5967 3.47021 14.7739 3 16.002 3C18.7588 3 21.002 5.33838 21.002 8.2124C21.002 8.35937 20.9946 8.50683 20.9771 8.65966Z" />
+    </symbol>
+</svg>
+<svg display="none">
+    <symbol id="cart" viewBox="0 0 23 23">
+        <path
+            d="M20.374 6.78906L9.1377 5.38428C8.54407 5.30994 7.96344 5.42914 7.44391 5.68665L7.20508 3.65186C7.02539 2.14014 5.74219 1 4.22168 1H2.00195C1.44922 1 1.00195 1.44775 1.00195 2C1.00195 2.55225 1.44922 3 2.00195 3H4.22168C4.73047 3 5.15918 3.38184 5.21875 3.88721L6.79883 17.3481C6.95923 18.6979 8.0011 19.7452 9.30438 19.9554C9.11609 20.2604 9.00195 20.616 9.00195 21C9.00195 22.103 9.89941 23 11.002 23C12.1045 23 13.002 22.103 13.002 21C13.002 20.6341 12.896 20.2953 12.7238 20H17.2802C17.1079 20.2953 17.002 20.6341 17.002 21C17.002 22.103 17.8994 23 19.002 23C20.1045 23 21.002 22.103 21.002 21C21.002 20.6341 20.896 20.2953 20.7238 20H22.002C22.5547 20 23.002 19.5522 23.002 19C23.002 18.4478 22.5547 18 22.002 18H9.78223C9.27344 18 8.84473 17.6182 8.78516 17.1143L8.64465 15.9172C8.86017 15.9664 9.08112 16 9.31055 16H20.002C21.6562 16 23.002 14.6543 23.002 13V9.76562C23.002 8.25586 21.8721 6.97607 20.374 6.78906ZM21.002 13C21.002 13.5513 20.5537 14 20.002 14H9.31055C8.80371 14 8.37598 13.6201 8.31738 13.1167L7.77246 8.47754C7.73633 8.17041 7.8418 7.86914 8.06152 7.65137C8.25098 7.46338 8.50098 7.36084 8.76367 7.36084C8.80566 7.36084 8.84766 7.36328 8.88965 7.36865L20.126 8.77344C20.625 8.83594 21.002 9.26221 21.002 9.76562V13Z" />
+
+    </symbol>
+</svg>
+<svg display="none">
+    <symbol id="bonus" viewBox="0 0 23 23">
+        <path
+            d="M12.002 1C5.93652 1 1.00195 5.93457 1.00195 12C1.00195 18.0654 5.93652 23 12.002 23C18.0674 23 23.002 18.0654 23.002 12C23.002 5.93457 18.0674 1 12.002 1ZM12.002 21C7.03906 21 3.00195 16.9629 3.00195 12C3.00195 7.03711 7.03906 3 12.002 3C16.9648 3 21.002 7.03711 21.002 12C21.002 16.9629 16.9648 21 12.002 21Z" />
+        <path
+            d="M14.5352 9.04199L12.9073 5.5752C12.7423 5.22363 12.3897 5 12.002 5C11.6143 5 11.2618 5.22363 11.0968 5.5752L9.46883 9.04199L5.85066 9.5957C5.48055 9.65234 5.17293 9.91113 5.05379 10.2666C4.93465 10.6221 5.02449 11.0137 5.28621 11.2822L7.93367 13.9951L7.30672 17.8389C7.24519 18.2168 7.40535 18.5967 7.71785 18.8174C8.03133 19.0381 8.44344 19.0615 8.77742 18.875L12.002 17.0928L15.2266 18.875C15.377 18.959 15.544 19 15.71 19C15.9122 19 16.1143 18.9385 16.2862 18.8174C16.5987 18.5967 16.7589 18.2168 16.6973 17.8389L16.0704 13.9951L18.7179 11.2822C18.9796 11.0137 19.0694 10.6221 18.9503 10.2666C18.8311 9.91113 18.5235 9.65234 18.1534 9.5957L14.5352 9.04199ZM14.2862 12.96C14.0645 13.1865 13.9639 13.5059 14.0147 13.8193L14.3917 16.1289L12.4854 15.0752C12.335 14.9922 12.169 14.9502 12.002 14.9502C11.835 14.9502 11.669 14.9922 11.5186 15.0752L9.61238 16.1289L9.98934 13.8193C10.0401 13.5059 9.93953 13.1865 9.71785 12.96L8.07723 11.2783L10.2989 10.9385C10.628 10.8887 10.9112 10.6768 11.0528 10.375L12.002 8.35352L12.9513 10.375C13.0929 10.6768 13.3761 10.8887 13.7052 10.9385L15.9268 11.2783L14.2862 12.96Z" />
+    </symbol>
+</svg>
+<svg display="none">
+    <symbol id="bag" viewBox="0 0 24 24">
+        <path
+            d="M21.0153 2.80078C20.9122 1.77441 20.0568 1 19.025 1H4.83509C3.80336 1 2.94789 1.77441 2.84486 2.80078L1.04506 20.8008C0.988903 21.3613 1.17347 21.9238 1.55189 22.3418C1.93031 22.7598 2.47084 23 3.0348 23H20.8248C21.3893 23 21.9298 22.7598 22.3082 22.3418C22.6867 21.9238 22.8712 21.3613 22.8151 20.8008L21.0153 2.80078ZM3.03529 21L4.83509 3H19.025L20.8268 21H3.03529Z" />
+        <path
+            d="M15.002 5C13.8989 5 13.002 5.89746 13.002 7C13.002 7.73676 13.407 8.37476 14.002 8.7218V11C14.002 12.1025 13.105 13 12.002 13C10.8989 13 10.002 12.1025 10.002 11V8.7218C10.5969 8.37476 11.002 7.73676 11.002 7C11.002 5.89746 10.105 5 9.00195 5C7.89893 5 7.00195 5.89746 7.00195 7C7.00195 7.73676 7.40704 8.37476 8.00195 8.7218V11C8.00195 13.2061 9.79639 15 12.002 15C14.2075 15 16.002 13.2061 16.002 11V8.7218C16.5969 8.37476 17.002 7.73676 17.002 7C17.002 5.89746 16.105 5 15.002 5Z" />
+    </symbol>
+</svg>
+<svg display="none">
+    <symbol id="message" viewBox="0 0 23 22">
+        <path
+            d="M17.002 0H5.00195C2.24495 0 0.00195312 2.243 0.00195312 5V13C0.00195312 15.414 1.72295 17.434 4.00195 17.899V21C4.00195 21.369 4.20495 21.708 4.52995 21.882C4.67795 21.961 4.83995 22 5.00195 22C5.19595 22 5.38895 21.943 5.55695 21.832L11.305 18H17.002C19.759 18 22.002 15.757 22.002 13V5C22.002 2.243 19.759 0 17.002 0ZM10.447 16.168L6.00195 19.131V17C6.00195 16.448 5.55395 16 5.00195 16C3.34795 16 2.00195 14.654 2.00195 13V5C2.00195 3.346 3.34795 2 5.00195 2H17.002C18.656 2 20.002 3.346 20.002 5V13C20.002 14.654 18.656 16 17.002 16H11.002C10.932 15.999 10.832 16.006 10.718 16.04C10.598 16.075 10.507 16.127 10.447 16.168Z" />
+        <path
+            d="M17.0039 6H5.00391C4.45191 6 4.00391 6.448 4.00391 7C4.00391 7.552 4.45191 8 5.00391 8H17.0039C17.5559 8 18.0039 7.552 18.0039 7C18.0039 6.448 17.5559 6 17.0039 6Z" />
+        <path
+            d="M15.002 10H7.00195C6.44995 10 6.00195 10.448 6.00195 11C6.00195 11.552 6.44995 12 7.00195 12H15.002C15.554 12 16.002 11.552 16.002 11C16.002 10.448 15.554 10 15.002 10Z" />
+    </symbol>
+</svg>
+
+<header class="header header__pc">
+    <div class="container">
+        <div class="header__body">
+            <div class="header__logo">
+                <a href="./index.html">
+                    <img src="img/svgicons/logo.svg" class="header__logo-img" alt="header-logo">
+                </a>
+            </div>
+            <div class="header__burger">
+                <span>
+
+                </span>
+            </div>
+            <nav class="header__menu">
+                <ul class="header__list-href">
+                    <li>
+                        <button class="header__btn header__btn__bordered btn__bordered">
+                            <div class="header__btn-img">
+                                <img src="img/svgicons/catalog.svg" alt="catalog">
+                            </div>
+                            Акции
+                        </button>
+                    </li>
+                    <li>
+                        <button class="header__btn btn">
+                            <div class="header__btn-img">
+                                <img src="img/svgicons/sale.svg" alt="sale">
+                            </div>
+                            Каталог
+                        </button>
+                    </li>
+                    <li>
+                        <a href="#" class="header__link">Эксклюзивные продукты</a>
+                    </li>
+                    <li>
+                        <a href="#" class="header__link">Доставка и оплата</a>
+                    </li>
+                    <li>
+                        <a href="#" class="header__link">О компании</a>
+                    </li>
+                    <li>
+                        <a href="./contacts.html" class="header__link">Контакты</a>
+                    </li>
+                </ul>
+                <ul class="header__list-icons">
+                    <li>
+                        <a href="#" class="header__icon">
+                            <label>
+                                <div class="header__icon-row">
+                                    <img src="img/svgicons/search.svg" alt="search">
+                                    <p>Поиск</p>
+                                </div>
+                            </label>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="header__icon">
+                            <label>
+                                <div class="header__icon-row">
+                                    <div class="header__icon__after header__icon__favorite">
+                                        <img src="img/svgicons/favorite.svg" alt="favorite">
+                                    </div>
+                                    <p>Избранное</p>
+                                </div>
+                            </label>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./lk.html" class="header__icon">
+                            <label>
+                                <div class="header__icon-row">
+                                    <img src="img/svgicons/user.svg" alt="user">
+                                    <p>Кабинет</p>
+                                </div>
+                            </label>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./cart.html" class="header__icon">
+                            <label>
+                                <div class="header__icon-row">
+                                    <div class="header__icon__after header__icon__cart">
+                                        <img src="img/svgicons/cart.svg" alt="cart">
+                                    </div>
+                                    <p>1 703,30 ₽</p>
+                                </div>
+                            </label>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>
+<header class="header header__mobile">
+    <div class="container">
+        <div class="header__body">
+            <div class="header__logo">
+                <a href="./index.html">
+                    <img src="img/svgicons/logo.svg" class="header__logo-img" alt="header-logo">
+                </a>
+            </div>
+            <div class="header__burger">
+                <span>
+
+                </span>
+            </div>
+            <nav class="header__menu">
+                <div class="header__header">
+                    Личный кабинет
+                </div>
+                <div class="aside-lk__item active-lk">
+                    <div class="aside-lk__img">
+                        <svg>
+                            <use xlink:href="#user"></use>
+                        </svg>
+                    </div>
+                    <button data-id="data" class="aside-lk__button">Мои данные</button>
+                </div>
+                <div class="aside-lk__item">
+                    <div class="aside-lk__img">
+                        <svg>
+                            <use xlink:href="#geo"></use>
+                        </svg>
+                    </div>
+                    <button data-id="address" class="aside-lk__button">Адреса</button>
+                </div>
+                <div class="aside-lk__item">
+                    <div class="aside-lk__img">
+                        <svg>
+                            <use xlink:href="#cart"></use>
+                        </svg>
+                    </div>
+                    <a href="./cart.html" class="aside-lk__button">Моя корзина</a>
+                </div>
+                <div class="aside-lk__item">
+                    <div class="aside-lk__img">
+                        <svg>
+                            <use xlink:href="#bag"></use>
+                        </svg>
+                    </div>
+                    <button data-id="orders" class="aside-lk__button">Мои заказы</button>
+                </div>
+                <div class="aside-lk__item">
+                    <div class="aside-lk__img">
+                        <svg>
+                            <use xlink:href="#favorite"></use>
+                        </svg>
+                    </div>
+                    <button data-id="favorites" class="aside-lk__button">Избранное</button>
+                </div>
+                <div class="aside-lk__item">
+                    <div class="aside-lk__img">
+                        <svg>
+                            <use xlink:href="#bonus"></use>
+                        </svg>
+                    </div>
+                    <button data-id="bonus" class="aside-lk__button">Бонусы</button>
+                </div>
+                <div class="aside-lk__item aside-lk__item__bordered">
+                    <div class="aside-lk__img">
+                        <svg>
+                            <use xlink:href="#message"></use>
+                        </svg>
+                    </div>
+                    <button data-id="callback" class="aside-lk__button">Обратная связь</button>
+                </div>
+                <div class="aside-lk__item">
+                    <div class="aside-lk__img">
+                        <svg>
+                            <use xlink:href="#logout"></use>
+                        </svg>
+                    </div>
+                    <button class="aside-lk__button">Выход</button>
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+        <main class="content">
+            <div class="head-crumbs">
+                <div class="container">
+                    <div class="head-crumbs__row">
+                        <a href="./index.html">Главная</a>
+                        <p>-</p>
+                        <p>Оформление заказа</p>
+                    </div>
+                </div>
+            </div>
+            <section class="order-header page-header">
+                <div class="container">
+                    <div class="order-header__row page-header__row">
+                        <div class="order-header__left page-header__item">
+                            <h1>Спасибо за заказ</h1>
+                            <a href="#" class="btn__bordered">Перейти в каталог</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="order-main page-main">
+                <div class="container">
+                    <div class="ordering__info">
+                        Номер вашего заказа <span id="order-num">11256478</span>. Стоимость вашего заказа <span id="order-sum">1703,30 ₽</span>. <br />
+                        В ближайшее время мы свяжемся с вами для уточнения деталей. Наш номер телефона 8 800 100 85 15.
+                    </div>
+                    <div class="ordering__content">
+                        <div class="ordering__structure">
+                            <h3 class="page-main__subtitle ordering__subtitle">Товары в наличии</h3>
+                            <div class="cart-main__products ordering__row">
+                                <div class="ordering__item">
+                                    <div class="products__info">
+                                        <div class="products__img">
+                                            <picture><source srcset="img/products/sausages-bavar.webp" type="image/webp"><img src="img/products/sausages-bavar.png" alt="sausages-bavar"></picture>
+                                        </div>
+                                        <div class="products__name">
+                                            <p>Сосиски Баварские</p>
+                                            <p>0,36 кг </p>
+                                        </div>
+                                    </div>
+                                    <div class="product__lot">
+                                        <p id="lot">2 шт</p>
+                                    </div>
+                                    <div class="products__price">
+                                        <p>260 ₽</p>
+                                        <p>130 ₽ за 1 шт.</p>
+                                    </div>
+                                </div>
+                                <div class="ordering__item">
+                                    <div class="products__info">
+                                        <div class="products__img">
+                                            <picture><source srcset="img/products/socramento.webp" type="image/webp"><img src="img/products/socramento.png" alt="socramentor"></picture>
+                                        </div>
+                                        <div class="products__name">
+                                            <p>Сокраменто</p>
+                                            <p>0,36 кг <img src="img/svgicons/question.svg" alt=""> </p>
+                                        </div>
+                                    </div>
+                                    <div class="product__lot">
+                                        <p id="lot">2 шт</p>
+                                    </div>
+                                    <div class="products__price">
+                                        <p>260 ₽</p>
+                                        <p>130 ₽ за 1 шт.</p>
+                                    </div>
+                                </div>
+                                <div class="ordering__item">
+                                    <div class="products__info">
+                                        <div class="products__img">
+                                            <div class="products__img-sale">Акция</div>
+                                            <picture><source srcset="img/products/socramento.webp" type="image/webp"><img src="img/products/socramento.png" alt="socramentor"></picture>
+                                        </div>
+                                        <div class="products__name">
+                                            <p>Сокраменто</p>
+                                            <p>~0,7 кг <img src="img/svgicons/question.svg" alt=""> </p>
+                                        </div>
+                                    </div>
+                                    <div class="product__lot">
+                                        <p id="lot">1 шт. ~1 кг</p>
+                                    </div>
+                                    <div class="products__price">
+                                        <p class="new-price">260 ₽ <span class="old-price">525 ₽/кг</span></p>
+                                        <p>130 ₽ за 1 шт.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ordering-description">
+                            <h3 class="page-main__subtitle ordering__subtitle">Детали заказа</h3>
+                            <div class="ordering-description__row">
+                                <div class="ordering-description__items">
+                                    <div class="ordering-description__item">
+                                        <p>Получатель</p>
+                                        <p>Александровский Константин</p>
+                                    </div>
+                                    <div class="ordering-description__item">
+                                        <p>Время доставки</p>
+                                        <p>Сегодня (9 ноября) с 10 до 14 часов</p>
+                                    </div>
+                                    <div class="ordering-description__item">
+                                        <p>Адрес доставки</p>
+                                        <p>Новосибирск, улица Гнесиных, дом 10/1, квартира/офис 1101</p>
+                                    </div>
+                                    <div class="ordering-description__item">
+                                        <p>Номер заказа</p>
+                                        <p>11256478</p>
+                                    </div>
+                                    <div class="ordering-description__item">
+                                        <p>Общий вес</p>
+                                        <p>~3,1 кг</p>
+                                    </div>
+                                    <div class="ordering-description__item">
+                                        <p>Стоимость доставки</p>
+                                        <p class="free">Бесплатно</p>
+                                    </div>
+                                    <div class="ordering-description__item">
+                                        <p>Товары (6)</p>
+                                        <p>1 777,30 ₽</p>
+                                    </div>
+                                    <div class="ordering-description__item">
+                                        <p>Скидка на товары</p>
+                                        <p class="sale">-74 ₽</p>
+                                    </div>
+                                </div>
+                                <div class="ordering-description__total">
+                                    <p>Итого</p>
+                                    <p>1 703,30 ₽</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer class="footer footer__pc">
+    <div class="footer__border">
+        <div class="container">
+            <div class="footer__row">
+                <div class="footer__about">
+                    <a class="footer__tel" href="tel:8 800 100 85 15">8 800 100 85 15</a>
+                    <p class="footer__tel-subtitle">бесплатно по России</p>
+                    <div class="footer__social">
+                        <a href="#" class="footer__social-link">
+                            <div class="footer__social__link">
+                                <img src="img/svgicons/inst.svg" alt="inst">
+                            </div>
+                        </a>
+                        <a href="#" class="footer__social-link">
+                            <div class="footer__social__link">
+                                <img src="img/svgicons/facebook.svg" alt="facebook">
+                            </div>
+                        </a>
+                        <a href="#" class="footer__social-link">
+                            <div class="footer__social__link">
+                                <img src="img/svgicons/vk.svg" alt="vk">
+                            </div>
+                        </a>
+                        <a href="#" class="footer__social-link">
+                            <div class="footer__social__link">
+                                <img src="img/svgicons/twitter.svg" alt="twitter">
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer__address">
+                    <p>spk@rmpr.ru</p>
+                    <p>
+                        Россия, Новосибирск,
+                        ул. Дуси Ковальчук, 1
+                    </p>
+                    <p>
+                        Доставка с 10:00 до 22:00
+                    </p>
+                </div>
+                <nav class="footer__nav nav-footer">
+                    <div class="nav-footer__row">
+                        <div class="nav-footer__item">
+                            <a href="#" class="nav-footer__link">Каталог</a>
+                            <a href="#" class="nav-footer__link">Акции</a>
+                            <a href="#" class="nav-footer__link">Эксклюзивные продукты</a>
+                            <a href="#" class="nav-footer__link">Подарочные наборы</a>
+                            <a href="#" class="nav-footer__link">О компании</a>
+                        </div>
+                        <div class="nav-footer__item">
+                            <a href="#" class="nav-footer__link">Доставка и оплата</a>
+                            <a href="#" class="nav-footer__link">Как сделать заказ</a>
+                            <a href="#" class="nav-footer__link">Отслеживание заказа</a>
+                            <a href="#" class="nav-footer__link">Служба качества</a>
+                            <a href="#" class="nav-footer__link">Контакты</a>
+                        </div>
+                    </div>
+                </nav>
+                <div class="footer__email email-footer">
+                    <p class="email-footer__text">
+                        Если у вас есть вопросы, пожелания, комментарии –
+                        вы можете отправить нам сообщение
+                    </p>
+                    <button class="email-footer__btn btn__bg">
+                        <div class="email-footer__btn-img">
+                            <img src="img/svgicons/message.svg" alt="message">
+                        </div>
+                        <p class="email-footer__btn-text">Обратная связь</p>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer__copy copy-footer">
+        <div class="container">
+            <div class="copy-footer__row">
+                <div class="copy-footer__copy">
+                    <p>
+                        © ООО «Сибирская продовольственная 
+                        компания», 1994 – 2021  
+                    </p>
+                    <a href="#">Политика конфиденциальности</a>
+                </div>
+                <div class="copy-footer__company">
+                    <span style="color: #12121266;">Разработка сайта – </span>
+                    <span>Евростудио</span>
+                    <div class="copy-footer__company-img">
+                        <img src="img/svgicons/logo-studio.svg" alt="logo-studio">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<footer class="footer__mobile">
+    <div class="footer__row">
+        <ul>
+            <li>
+                <a href="./lk.html" class="header__icon">
+                    <label>
+                        <div class="header__icon-row">
+                            <img src="img/svgicons/catalog-mobile.svg" alt="catalog">
+                            <p>Акции</p>
+                        </div>
+                    </label>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="header__icon">
+                    <label>
+                        <div class="header__icon-row">
+                            <div class="header__icon__after header__icon__favorite">
+                                <img src="img/svgicons/favorite.svg" alt="favorite">
+                            </div>
+                            <p>Избранное</p>
+                        </div>
+                    </label>
+                </a>
+            </li>
+            <li>
+                <a href="./lk.html" class="header__icon">
+                    <label>
+                        <div class="header__icon-row">
+                            <img src="img/svgicons/user.svg" alt="user">
+                            <p>Кабинет</p>
+                        </div>
+                    </label>
+                </a>
+            </li>
+            <li>
+                <a href="./cart.html" class="header__icon">
+                    <label>
+                        <div class="header__icon-row">
+                            <div class="header__icon__after header__icon__cart">
+                                <img src="img/svgicons/cart.svg" alt="cart">
+                            </div>
+                            <p>1 703,30 ₽</p>
+                        </div>
+                    </label>
+                </a>
+            </li>
+        </ul>
+    </div>
+</footer>
+
+<div class="callback">
+    <div class="callback__row">
+        <div class="callback__close">
+            <div></div>
+        </div>
+        <div class="content-aside__row">
+            <div class="callback-lk__row">
+                <h2 class="data-lk__title">Обратная связь</h2>
+                <p class="callback-lk__subtitle">Вы можете оставить нам сообщение. Мы ответим как можно скорее удобным для вас способом.</p>
+                <form action="#" class="callback-lk__form">
+                    <div class="select">
+                        <select name="select">
+                            <option selected="" value="s1">Позвоните мне по телефону</option>
+                            <option value="s2">Вариант 1</option>
+                            <option value="s3">Вариант 2</option>
+                            <option value="s4">Вариант 3</option>
+                        </select>
+                    </div>
+                    <label class="data-lk__item input">
+                        <p class="data-lk__placeholder custom-placeholder">Телефон *</p>
+                        <input class="data-lk__input custom-input" id="tel" type="tel" required="">
+                    </label>
+                    <textarea class="callback-lk__textarea" placeholder="Сообщение" name="callback-lk-textarea" id="callback-lk-textarea"></textarea>
+                    <label class="file">
+                        <input class="custom-file" name="file" type="file">
+                        Прикрепить файл
+                        <img src="img/svgicons/clip.svg" alt="clip">
+                    </label>
+                    <button class="btn__bg callback-lk__btn" type="submit">Отправить сообщение</button>
+                </form>
+                <p class="callback-lk__notice">
+                    Нажимая на кнопку вы даёте согласие на сбор 
+                    и обработку <a href="#">персональных данных.</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js?_v=20221225234736"></script>
+    <script src="js/app.min.js?_v=20221225234736"></script>
+</body>
+
+</html>
